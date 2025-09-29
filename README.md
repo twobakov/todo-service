@@ -42,6 +42,12 @@ docker run --name postgres_alt \
 ```
 ### 4. Создать таблицу с заданиями в базе данных:
 
+Подключиться к базе данных в интерактивном режиме:
+
+```bash
+docker exec -it postgres_alt psql -U postgres -d todolist
+```
+Создать таблицу:
 ```bash
 CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
@@ -51,10 +57,9 @@ CREATE TABLE tasks (
     created_at TIMESTAMP DEFAULT now(),
     updated_at TIMESTAMP DEFAULT now()
 );
-
 ```
 
-### 4. Запустить приложение
+### 5. Запустить приложение
 ```bash
 go run cmd/api/main.go
 ```
